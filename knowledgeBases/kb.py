@@ -80,7 +80,7 @@ class KB(object):
             return results
 
     def one_hop_graph(self, entity1_uri, relation_uri, entity2_uri=None):
-        # print('kb one_hop_graph')
+        # print('knowledgeBases one_hop_graph')
         relation_uri = self.uri_to_sparql(relation_uri)
         entity1_uri = self.uri_to_sparql(entity1_uri)
         if entity2_uri is None:
@@ -112,7 +112,7 @@ SELECT DISTINCT ?m WHERE {{ {where} }}""".format(prefix=self.query_prefix(), whe
             return output
 
     def two_hop_graph_template(self, entity1_uri, relation1_uri, entity2_uri, relation2_uri):
-        # print('kb two_hop_graph_template')
+        # print('knowledgeBases two_hop_graph_template')
         query_types = [[0, u"{ent1} {rel1} {ent2} . ?u1 {rel2} {ent1}"],
                        [1, u"{ent1} {rel1} {ent2} . {ent1} {rel2} ?u1"],
                        [2, u"{ent1} {rel1} {ent2} . {ent2} {rel2} ?u1"],
@@ -129,7 +129,7 @@ SELECT DISTINCT ?m WHERE {{ {where} }}""".format(prefix=self.query_prefix(), whe
         return output
 
     def two_hop_graph(self, entity1_uri, relation1_uri, entity2_uri, relation2_uri):
-        # print('kb two_hop_graph')
+        # print('knowledgeBases two_hop_graph')
         relation1_uri = self.uri_to_sparql(relation1_uri)
         relation2_uri = self.uri_to_sparql(relation2_uri)
         entity1_uri = self.uri_to_sparql(entity1_uri)
